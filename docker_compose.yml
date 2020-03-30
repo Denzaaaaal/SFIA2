@@ -2,25 +2,25 @@
     services: 
       service_1: 
         build: 
-            context: $HOME/projects/SFIA2/services/service_1/
+            context: ./services/service_1/
             dockerfile: Dockerfile
         ports: 
           - "80:5000"
       service_2: 
         build: 
-            context: $HOME/projects/SFIA2/services/service_2/
+            context: ./services/service_2/
             dockerfile: Dockerfile
         ports: 
           - "5001:5001"
       service_3: 
         build: 
-            context: $HOME/projects/SFIA2/services/service_3/
+            context: ./services/service_3/
             dockerfile: Dockerfile
         ports: 
           - "5002:5002"
       service_4: 
         build: 
-            context: $HOME/projects/SFIA2/services/service_4/
+            context: ./services/service_4/
             dockerfile: Dockerfile
         ports: 
           - "5003:5003"
