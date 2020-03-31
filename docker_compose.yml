@@ -6,22 +6,38 @@
             dockerfile: Dockerfile
         ports: 
           - "80:5000"
+        networks:
+          - sfia_network
+
       service_2: 
         build: 
             context: ./services/service_2/
             dockerfile: Dockerfile
         ports: 
           - "5001:5001"
+        networks:
+            - sfia_network
+
       service_3: 
         build: 
             context: ./services/service_3/
             dockerfile: Dockerfile
         ports: 
           - "5002:5002"
-      service_4: 
+        networks:
+            - sfia_network
+
+      service_4:
         build: 
             context: ./services/service_4/
             dockerfile: Dockerfile
         ports: 
-          - "5003:5003"
+          - "5003:5003"     
+        networks:
+          - sfia_network
+
+    networks:
+      sfia_network:
+        driver: bridge
+
     version: "3.7"
