@@ -8,7 +8,7 @@ def home():
     combined_name = requests.get("http://service_4:5003/joined_names")
     print(combined_name)
     full_name = combined_name.text
-    return render_template("layout.html", full_name = full_name)
+    return render_template("layout.html", full_name = full_name, title = "Name Generator")
 
 if __name__ == "__main__":
     app.run(port = 5000, host = "0.0.0.0", debug = True)
