@@ -1,38 +1,49 @@
 --- 
     services: 
-      service_1: 
+      service_1:
+        container_name: service_1
         build: 
             context: ./service_1/
             dockerfile: Dockerfile
-        ports: 
-          - "5000:5000"
+        image: service_1:latest
         networks:
           - sfia_network
 
-      service_2: 
+      service_2:
+        container_name: service_2
         build: 
             context: ./service_2/
             dockerfile: Dockerfile
-        ports: 
-          - "5001:5001"
+        image: service_2:latest
         networks:
             - sfia_network
 
       service_3: 
+        container_name: service_3
         build: 
             context: ./service_3/
             dockerfile: Dockerfile
-        ports: 
-          - "5002:5002"
+        image: service_3:latest
         networks:
             - sfia_network
 
       service_4:
+        container_name: service_4
         build: 
             context: ./service_4/
             dockerfile: Dockerfile
-        ports: 
-          - "5003:5003"     
+        image: service_4:latest   
+        networks:
+          - sfia_network
+
+      web_proxy:
+        container_name: web_proxy
+        build:
+          context: ./nginx/
+          dockerfile: Dockerfile
+        image: web_proxy:latest
+        ports:
+          - "80:80"
         networks:
           - sfia_network
 

@@ -1,0 +1,45 @@
+--- 
+    services: 
+      service_1:
+        image: denzaaaaal/service_1
+        networks:
+          - ingress
+        deploy:
+          replicas: 3
+
+      service_2:
+        image: denzaaaaal/service_2
+        networks:
+            - ingress
+        deploy:
+          replicas: 3
+
+
+      service_3: 
+        image: denzaaaaal/service_3
+        networks:
+            - ingress
+        deploy:
+          replicas: 3
+
+      service_4:
+        image: denzaaaaal/service_4 
+        networks:
+          - ingress
+        deploy:
+          replicas: 3
+      
+      web_server:
+        image: nginx
+        ports:
+          - "80:80"
+        networks:
+          - ingress
+        deploy:
+          replicas: 3
+          
+    networks:
+      sfia_network:
+        driver: overlay
+
+    version: "3.7"

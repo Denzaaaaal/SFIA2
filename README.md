@@ -11,6 +11,7 @@
 ### Start Point
 
 ### End Point
+ * Encountered an issue with dockerswarm which prevent the container being built before before deployment. This issue was overcome by using GitHub intergration with docker allowing new builds to occur when a change is detected within a certain directory in my GitHub Repository.
 
 ## Risk Assessment
 
