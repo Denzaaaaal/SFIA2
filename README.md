@@ -30,10 +30,14 @@
 ## Overall Archetecture
 
 ## Toolset
-
-## Bug Fix
+- Jenkins
+- Ansible
+- Docker
+- Flask
+- Python
 
 ## Improvements
-
-### Author
+* ~~Incoporate Dockerhub autobuild feature when changes in Github are detected~~
+* Incorporate HTTPS and SSL Certificate verification to ensure entries made into the database are transmited through a secure connection
+## Author
 Denzel Douglas
