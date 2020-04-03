@@ -37,10 +37,10 @@
 - Flask
 - Python
 
-## Improvements
+## Future Improvements
 * ~~Incoporate Dockerhub autobuild feature when changes in Github are detected~~
 * Incorporate HTTPS and SSL Certificate verification to ensure entries made into the database are transmited through a secure connection
-* Incoporate CSS into Flask Application
+* Incoporate CSS into website template
 * Incoporate testing container to test different functionality of the API
 ## Author
 Denzel Douglas
