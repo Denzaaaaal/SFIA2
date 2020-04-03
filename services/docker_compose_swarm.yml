@@ -14,7 +14,6 @@
         deploy:
           replicas: 3
 
-
       service_3: 
         image: denzaaaaal/service_3
         networks:
@@ -30,7 +29,7 @@
           replicas: 3
       
       web_server:
-        image: nginx
+        image: denzaaaaal/web_proxy
         ports:
           - "80:80"
         networks:
