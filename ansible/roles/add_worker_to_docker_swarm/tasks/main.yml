@@ -1,0 +1,2 @@
+- name: Add worker to manager node
+  shell: "docker swarm join --token {{ hostvars['RESULT']['value'] }} worker:2377"
