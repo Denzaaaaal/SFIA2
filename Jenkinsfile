@@ -5,14 +5,13 @@ pipeline {
         stage('Development Environment') {
             steps{
                 sh 'chmod +x ./scripts/*'
-                sh './scripts/before_installation.sh'
-                sh './scripts/installation.sh'
-
+                sh './scripts/dependencies.sh'
+                sh './scripts/run.sh'
             }
         }
-        stage('Testing'){
-            steps{
-                sh 'pytest ./test/testing.py'
+        // stage('Testing'){
+        //     steps{
+        //         sh 'pytest ./test/testing.py'
             }
         }
     }
