@@ -12,7 +12,7 @@ pipeline {
         // stage('Testing'){
         //     steps{
         //         sh 'pytest ./test/testing.py'
-            }
-        }
+        //     }
+        // }
     }
 }
