@@ -3,7 +3,7 @@
   tasks:
     - name: Push docker swarm file
       copy:
-        src: $HOME/projects/SFIA2/services/docker_compose_swarm.yml
+        src: $HOME/workspace/sfia2/services/docker_compose_swarm.yml
         dest: /home/jenkins/
         owner: jenkins
 
