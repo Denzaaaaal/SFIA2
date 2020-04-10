@@ -1,7 +1,13 @@
 - hosts: manager
   become: true
   tasks:
+    - name: Get files from GitHub
+      git: 
+        repo: 'https://github.com/Denzaaaaal/SFIA2.git'
+        clone: yes
+        version: development
+
     - name: deploy as swarm
       command: docker stack deploy --compose-file docker_compose_swarm.yml stackdemo
       args:
-        chdir: /var/lib/jenkins/workspace/sfia2/services
+        chdir: services
