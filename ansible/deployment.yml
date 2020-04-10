@@ -4,4 +4,4 @@
     - name: deploy as swarm
       command: docker stack deploy --compose-file docker_compose_swarm.yml stackdemo
       args:
-        chdir: services
+        chdir: /var/lib/jenkins/workspace/sfia2/services
