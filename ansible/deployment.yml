@@ -1,11 +1,7 @@
 - hosts: manager
   become: true
   tasks:
-    - name: Push docker swarm file
-      copy:
-        src: $HOME/workspace/sfia2/services/docker_compose_swarm.yml
-        dest: /home/jenkins/
-        owner: jenkins
-
     - name: Deploy as swarm
       command: docker stack deploy --compose-file docker_compose_swarm.yml stackdemo
+      args:
+        chdir: services
