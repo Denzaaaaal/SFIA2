@@ -1,44 +1,38 @@
 --- 
-    services: 
-      service_1:
-        image: denzaaaaal/service_1
-        networks:
-          - ingress
-        deploy:
-          replicas: 3
-
-      service_2:
-        image: denzaaaaal/service_2
-        networks:
-            - ingress
-        deploy:
-          replicas: 3
-
-      service_3: 
-        image: denzaaaaal/service_3
-        networks:
-            - ingress
-        deploy:
-          replicas: 3
-
-      service_4:
-        image: denzaaaaal/service_4 
-        networks:
-          - ingress
-        deploy:
-          replicas: 3
-      
-      web_server:
-        image: denzaaaaal/web_proxy
-        ports:
-          - "80:80"
-        networks:
-          - ingress
-        deploy:
-          replicas: 3
-          
-    networks:
-      sfia_network:
-        driver: overlay
-
-    version: "3.7"
+networks: 
+  sfia_network: 
+    driver: overlay
+services: 
+  service_1: 
+    deploy: 
+      replicas: 3
+    image: denzaaaaal/service_1
+    networks: 
+      - ingress
+  service_2: 
+    deploy: 
+      replicas: 3
+    image: denzaaaaal/service_2
+    networks: 
+      - ingress
+  service_3: 
+    deploy: 
+      replicas: 3
+    image: denzaaaaal/service_3
+    networks: 
+      - ingress
+  service_4: 
+    deploy: 
+      replicas: 3
+    image: denzaaaaal/service_4
+    networks: 
+      - ingress
+  web_server: 
+    deploy: 
+      replicas: 3
+    image: denzaaaaal/web_proxy
+    networks: 
+      - ingress
+    ports: 
+      - "80:80"
+version: "3.7"
