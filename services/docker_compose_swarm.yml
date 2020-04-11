@@ -10,21 +10,21 @@
       service_2:
         image: denzaaaaal/service_2
         networks:
-            - ingress
+          - ingress
         deploy:
           replicas: 3
 
       service_3: 
         image: denzaaaaal/service_3
         networks:
-            - ingress
+          - ingress
         deploy:
           replicas: 3
 
       service_4:
         image: denzaaaaal/service_4 
         networks:
-            - ingress
+          - ingress
         deploy:
           replicas: 3
       
@@ -33,7 +33,7 @@
         ports:
           - "80:80"
         networks:
-            - ingress
+          - ingress
         deploy:
           replicas: 3
           
