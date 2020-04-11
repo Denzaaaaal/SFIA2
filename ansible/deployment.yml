@@ -1,7 +1,13 @@
 - hosts: manager
   become: true
   tasks:
+    - name : Copy Over the docker_compose file to manager
+      copy:
+        src: ../services/docker_compose_swarm.yml
+        dest: /home/jenkins/
+        owner: jenkins
+
     - name: Deploy as swarm
-      command: docker stack deploy --compose-file docker_compose_swarm.yml stackdemo
+      command: docker stack deploy --compose-file docker_compose_swarm.yml sfia2stack
       args:
-        chdir: services
+        chdir: $HOME/workspaceservices
