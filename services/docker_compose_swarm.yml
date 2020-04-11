@@ -38,7 +38,7 @@
           replicas: 3
           
     networks:
-      sfia_network:
+      ingress:
         driver: overlay
 
     version: "3.7"
