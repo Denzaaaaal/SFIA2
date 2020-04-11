@@ -9,5 +9,3 @@
 
     - name: Deploy as swarm
       command: docker stack deploy --compose-file docker_compose_swarm.yml sfia2stack
-      args:
-        chdir: $HOME/workspaceservices
