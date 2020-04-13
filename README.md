@@ -18,13 +18,24 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
  * Nginx container has been amended to redirect all connections to HTTPS. Due to not being able to acquire a signed certificate, the container will generate a new key everytime it is rebuilt and will use that key to authorise the connection. ~~The key was not uploaded to Github as this could cause a security risk and due to dockerhub building the container when changes are detected in Github, this specific repository has been made private to prevent exposure of the key generated when the container was built.~~
 
 ## Risk Assessment
+### Start Point
+Below is risks I predicted could impact the project.
+
 |Risk|Impact|Probability|Consequence|Action|
 |----|------|-----------|-----------|------|
-|Becoming Sick (Flu, Cold, COVID-19, etc) |Major|51%-75%|Could lead to serious delays in the project and to the workers health|Wash hands regularly, keep 2 Meter distance, leave your house for only essentials, take appropriate medicine|
+|Becoming Sick (Flu, Cold, COVID-19, etc)|Major|51%-75%|Could lead to serious delays in the project and to the workers health|Wash hands regularly, keep 2 Meter distance, leave your house for only essentials, take appropriate medicine|
 |Eye Strain|Minor|26%-50%|Increased eye strain causes stress on the body and can deteriorate vision|Ensure regular breaks are taken away from the computer|
-|Private details leaked  |Major|26%-50%|Reputation damage|Ensure confidential repositories are made private and use of .gitignore or .dockerignore is used to prevent details being uploaded to version control system or container system. Encryption can be used to further secure the application|
+|Private details leaked|Major|26%-50%|Reputation damage|Ensure confidential repositories are made private and use of .gitignore or .dockerignore is used to prevent details being uploaded to version control system or container system. Encryption can be used to further secure the application|
 |Service being attacked (DDOS)|Critical|76%-100%|Service going down, Reputation damage|Ensure only relevant ports are opened and containers are suffienctly replicated|
 |Running out of free credit on GCP|Major|1%-25%|Would require either a new account to be created on GCP or pay for the service|Ensure that credit hungry services are running only at essential times and choose instance specifications that do not incur large costs|
+
+### End Point
+Below is a list of risks in addition to the ones above that impacted the project during the sprint.
+
+|Risk|Impact|Probability|Consequence|Action|
+|----|------|-----------|-----------|------|
+|GCP going down|1%-25%|Major|Due to the lockdown, increased usage of cloud services are putting a strain on GCP servers causing them to crash|Explore other hosting solutions and consider building your application locally using several virtual machines to simulate the network|
+|Spending an extended time understanding how ansible works|Major|26%-50%|Ansibles offical documentation was not updated and which made it difficult to find ways to do certain tasks on ansible|Pieced together different sources of documentation on the internet, dissern what works and implement it into my work|
 
 ## Project Archetecture
 
@@ -53,7 +64,7 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
 * Incoporate testing container to test different functionality of the API
 * ~~Incorporate Jenkins autobuild feature when new changes are pushed to Github~~
 ## Installation
-### Pre-requisits 
+### Pre-requisites 
 * Account with Google Cloud Platform
 * Knowledge of using Google Cloud Platform
 * Account with Github
@@ -62,14 +73,16 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
 * jenkins-ansible
 * master
 * worker
+
 Leave all the other options as there defaults accept the worker where you will need to tick the box "allow HTTP Traffic" in the firewall option. This will enable the server to be accessed via a web browser on port 80 and leave all the other options as default.
 
 2 - On GCP, navigate to VPC Network > Firewall rules and create 2 firewall rules with the following names:
 * jenkins
 * Docker
-For the Jenkins firewall, add IP address the IP address you are working from and in the protocols and ports section, select "Specified protocols and ports", tick the "TCP" iton and add port 8080 and click "Save".
 
-For the Docker firewall, add IP address the IP address of the manager and worker and in the protocols and ports section, select "Specified protocols and ports", tick the "TCP" iton and add port 2377 and click "Save".
+For the Jenkins firewall, add IP address the IP address you are working from and in the protocols and ports section, select "Specified protocols and ports", tick the "TCP" icon and add port 8080 and click "Save".
+
+For the Docker firewall, add IP address the IP address of the manager and worker and in the protocols and ports section, select "Specified protocols and ports", tick the "TCP" icon and add port 2377 and click "Save".
 
 Go back in Compute Engine > VM instance and click edit the jenkins-ansible instance and add the jenkins rule to the firewall.
 
@@ -132,7 +145,7 @@ Copy the output and go to the IP address of the jenkins-ansible instance at port
 
 `0.0.0.0:8080`
 
-It will ask you to enter the adminstrator password into the box on the screen. Paste the output copied from your cat command and press "Continue"
+It will ask you to enter the administrator password into the box on the screen. Paste the output copied from your cat command and press "Continue"
 
 5 - If the password is correct, Jenkins will then ask you to install plugins. Select "Install suggested plugins" and the program will get to work downloading the plugins selected. 
 
@@ -148,7 +161,7 @@ Click "Start using Jenkins"
 
 `vi /etc/hosts`
 
-In here you will see the IP address of the localhost and the domain which in this case localhost. We are going to add our IP addresses of the manager and worker which should result in the file looking like below. Fill out the 0.0.0.0 with the external IP addresses of each instance
+In here you will see the IP address of the localhost and the domain which in this case localhost. We are going to add our IP addresses of the manager and worker which should result in the file looking like below.Replace 0.0.0.0 with the external IP addresses of each instance
 ```
 127.0.0.1 localhost
 0.0.0.0 manager-node
@@ -156,11 +169,27 @@ In here you will see the IP address of the localhost and the domain which in thi
 ```
 Save the changes and exit the terminal session.
 
-7 - We now need to setup Jenkins to build the project.
+8 - We now need to setup Jenkins to build the project.
 
 Click on "New Item" on the left hand menu which will present you with a new page. In the item name, enter in "SFIA2" as the item name and select "pipeline" as the build configuration. Then click "Ok".
 
-Here we will be taken to a page which requires us to further configure our build configuration.  
+Here we will be taken to a page which requires us to further configure our build configuration. 
+
+Scroll down untill you see the 'Github project' under 'General' tab and enter in this Github Repository which is below
+
+`https://github.com/Denzaaaaal/SFIA2.git`
+
+Next click on the 'Pipeline' tab and change the definition to 'Pipeline script from SCM'. An option named 'SCM' will appear, select 'Git'.
+
+Where it mentions the 'Repository URL', enter the same Git Repo below.
+
+`https://github.com/Denzaaaaal/SFIA2.git`
+
+You will now need to add your Github account to authorise the build. Click on the 'Add' button and a dropdown menu will appear. Click the option 'Jenkins' and this will pop up a new window. Add your Github details of your username and password in the corresponding boxes and click 'Add'.
+
+Leave the branch as '*/master' and click 'Save'. This will take you back to the 'SFIA2 pipeline menu'.
+
+From here, select 'Build Now'. This will pull the service from the github master branch and build the application. 
 
 
 ## Author
