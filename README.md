@@ -19,7 +19,7 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
 
 ## Risk Assessment
 ### Start Point
-Below is risks I predicted could impact the project.
+Below is a list of risks I predicted could impact the project.
 
 |Risk|Impact|Probability|Consequence|Action|
 |----|------|-----------|-----------|------|
@@ -30,7 +30,7 @@ Below is risks I predicted could impact the project.
 |Running out of free credit on GCP|Major|1%-25%|Would require either a new account to be created on GCP or pay for the service|Ensure that credit hungry services are running only at essential times and choose instance specifications that do not incur large costs|
 
 ### End Point
-Below is a list of risks in addition to the ones above that impacted the project during the sprint.
+Below is a list of risks in addition to the ones above that impacted the project.
 
 |Risk|Impact|Probability|Consequence|Action|
 |----|------|-----------|-----------|------|
@@ -38,20 +38,36 @@ Below is a list of risks in addition to the ones above that impacted the project
 |Spending an extended time understanding how ansible works|Major|26%-50%|Ansibles offical documentation was not updated and which made it difficult to find ways to do certain tasks on ansible|Pieced together different sources of documentation on the internet, dissern what works and implement it into my work|
 
 ## Project Archetecture
+### Initial Archetecture
 
-## Overall Archetecture
+### Final Archetecture
 
-## Toolset
+
+### Toolset
 - Jenkins
 - Ansible
 - Nginx
 - Docker
 - Flask
 - Python
+
+### Design Decisions
+- Jenkins
+
+- Ansible was selected to deploy the application 
+
+- Docker 
+
+- Nginx 
+
+- Flask
+
+- Python 
+
 ## Retrospective
 ### What went well
-* The application has been set up for continuous deployment.
-* The application does not have unnecessary ports opened or IP addresses shown in the code
+* The application has been set up for continuous intergration and continuous deployment.
+* The application does not have unnecessary ports opened or IP addresses exposed in the code
 * 
 ### What did not go well
 * Ansibles documentation acts more like a reference instead of a how-to guide
