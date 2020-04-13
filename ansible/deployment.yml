@@ -9,7 +9,7 @@
 
     - name : Copy Over the environment variables to manager
       copy:
-        src: ../../../evironment_variables
+        src: ../../../environment_variables
         dest: /home/jenkins/
         owner: jenkins        
 
