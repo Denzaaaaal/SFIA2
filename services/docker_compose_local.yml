@@ -6,6 +6,7 @@
             context: ./service_1/
             dockerfile: Dockerfile
         image: service_1:latest
+        env_file: ./service_1/environment_variables.env
         networks:
           - sfia_network
 

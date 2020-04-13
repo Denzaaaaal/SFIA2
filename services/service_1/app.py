@@ -13,8 +13,14 @@ app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 @app.route("/", methods = ['GET'])
 def home():
     combined_name = requests.get("http://service_4:5003/joined_names")
-    print(combined_name)
     full_name = combined_name.text
+    if request.method == 'POST':
+        status=request.form
+        if 'create' in status:
+            combined_name = requests.get("http://service_4:5003/joined_names")
+            cur=mysql.connection.cursor()
+            cur.execute('insert into name where full_name = %s', full_name)
+        cur.close()
     return render_template("layout.html", full_name = full_name, title = "Name Generator")
 
 if __name__ == "__main__":

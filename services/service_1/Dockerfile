@@ -10,6 +10,7 @@ RUN apt update -y
 RUN pip3 install flask
 RUN pip3 install requests
 RUN pip3 install request
+RUN pip install Flask-MySQLdb
 
 # Running the application
 CMD python3 app.py
