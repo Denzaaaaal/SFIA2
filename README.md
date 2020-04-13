@@ -52,17 +52,21 @@ Below is a list of risks in addition to the ones above that impacted the project
 - Python
 
 ### Design Decisions
-- Jenkins
+- Jenkins has been set up with web hooks to autobuild the application as soon as it has been deployed. Jenkins is also works as the trigger to tell ansible to configure, test and deploy the application. 
 
-- Ansible was selected to deploy the application 
+- Ansible was selected to configure the servers for the application initally but then during the process of going through the documentation, I discovered that it would be easier to use ansible to deploy the application instead of Jenkins due to it's simpler implimentation of copying the required files to the manager and then telling it to execute the command that uses those files. Ansible has also been configured to take down the service and rebuild the service on every new build preventing the user from having to leave the node manually.
 
-- Docker 
+- Docker was the container service used 
 
-- Nginx 
+- Nginx was used as a web proxy to prevent any unnessisary ports from being exposed and due to it being a web server as well, it also works as a barrier to prevent people from accessing the service directly reducing the likelyhood of a DDOS attack taking down the service.
 
 - Flask
 
+
 - Python 
+The container for the services all are built on a container called Python Slim. This uses Debian as the container operating system instead of alpine. I decided to use this instead as Debian is one of the distributions in linux that is known for it's stability. This will ensures that any issues that occurs within the container will be most likely due to my application being falty.
+
+
 
 ## Retrospective
 ### What went well
@@ -73,6 +77,7 @@ Below is a list of risks in addition to the ones above that impacted the project
 * Ansibles documentation acts more like a reference instead of a how-to guide
 * Ansibles documentation does not mention some arguments they that it accepts
 * Setting a repository in dockerhub to private prevents it from being built using docker swarm
+* If the any of the services are edited, dockerhub bulds the images at a slower rate than jenkins does which leads to 
 ### Future Improvements
 * ~~Incoporate Dockerhub autobuild feature when changes in a Github directory are detected~~
 * Incorporate HTTPS redirection and certificate verification to ensure entries made into the database are transmited through a secure connection

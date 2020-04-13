@@ -7,5 +7,11 @@
         dest: /home/jenkins/
         owner: jenkins
 
+    - name : Copy Over the environment variables to manager
+      copy:
+        src: ../services/.env
+        dest: /home/jenkins/
+        owner: jenkins        
+
     - name: Deploy as swarm
       command: docker stack deploy --compose-file docker_compose_swarm.yml sfia2stack
