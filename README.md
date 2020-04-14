@@ -35,8 +35,9 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
 #### Won't have
 
 ### Start Point
-
+![start_point](https://github.com/Denzaaaaal/SFIA2/blob/developer/images/start_point.JPG)
 ### End Point
+![end_point](https://github.com/Denzaaaaal/SFIA2/blob/developer/images/end_point.JPG)
 * In order to make the application deployment process as seemless as possible, Jenkins has been setup to auto build the application when changes are detected in Github. 
 
  * Encountered an issue with dockerswarm which prevents changes from being implemented in the container  before deployment. This issue was overcome by using Github intergration with docker allowing new builds to occur when a change is detected within specified directories in my Github Repository.
@@ -107,7 +108,7 @@ Below is a list of risks in addition to the ones above that impacted the project
 
 Below I have outlined the next sprint using a Kanban Board incorporating these features. Some of these features got implemented earlier than expected due to increasing build efficiency.
 
-Image
+![additional_changes](https://github.com/Denzaaaaal/SFIA2/blob/developer/images/additional_changes.JPG)
 
 ## Installation
 ### Pre-requisites 
