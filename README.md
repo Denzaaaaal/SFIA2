@@ -56,17 +56,11 @@ Below is a list of risks in addition to the ones above that impacted the project
 
 - Ansible was selected to configure the servers for the application initally but then during the process of going through the documentation, I discovered that it would be easier to use ansible to deploy the application instead of Jenkins due to it's simpler implimentation of copying the required files to the manager and then telling it to execute the command that uses those files. Ansible has also been configured to take down the service and rebuild the service on every new build preventing the user from having to leave the node manually.
 
-- Docker was the container service used 
+- Docker was the container service used for this project and this specific deployment ultilises the docker-compose addition to docker. Within the project a docker-compose file has been created to pull the latest images from dockerhub which has been set up with a webhooks to specfic directories in my github to allow the build of the latest images from a specific directory.
 
 - Nginx was used as a web proxy to prevent any unnessisary ports from being exposed and due to it being a web server as well, it also works as a barrier to prevent people from accessing the service directly reducing the likelyhood of a DDOS attack taking down the service.
 
-- Flask
-
-
-- Python 
-The container for the services all are built on a container called Python Slim. This uses Debian as the container operating system instead of alpine. I decided to use this instead as Debian is one of the distributions in linux that is known for it's stability. This will ensures that any issues that occurs within the container will be most likely due to my application being falty.
-
-
+- The container for the services all are built on a container called Python Slim. This uses Debian as the container operating system instead of alpine. I decided to use this instead as Debian is one of the distributions in linux that is known for it's stability. This will ensures that any issues that occurs within the container will be most likely due to my application being falty.
 
 ## Retrospective
 ### What went well
@@ -84,6 +78,10 @@ The container for the services all are built on a container called Python Slim. 
 * Incoporate CSS into website template
 * Incoporate testing container to test different functionality of the API
 * ~~Incorporate Jenkins autobuild feature when new changes are pushed to Github~~
+
+Below I have outlined the next sprint using a Kanban Board incorporating these features. Some of these features got implemented earlier than expected due to increasing build efficiency.
+
+
 ## Installation
 ### Pre-requisites 
 * Account with Google Cloud Platform
@@ -188,9 +186,28 @@ In here you will see the IP address of the localhost and the domain which in thi
 0.0.0.0 manager-node
 0.0.0.0 worker-node
 ```
+Save the changes
+
+8 - Setting up environment variables
+
+Next we need to set up an environment variables files which ansible will use to send the details to other nodes into the database. 
+
+Enter the following command 
+
+`vi ~/.environment_variables.env`
+
+This will create a file in the jenkins home directory which will contain the details of your server. Add the code below to the file amending the variables to suit your SQL database.
+
+```
+MYSQL_HOST=0.0.0.0
+MYSQL_USER=root
+MYSQL_PASSWORD=changeme
+MYSQL_DB=sfia2-db
+```
+
 Save the changes and exit the terminal session.
 
-8 - We now need to setup Jenkins to build the project.
+9 - We now need to setup Jenkins to build the project.
 
 Click on "New Item" on the left hand menu which will present you with a new page. In the item name, enter in "SFIA2" as the item name and select "pipeline" as the build configuration. Then click "Ok".
 
