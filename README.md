@@ -8,6 +8,32 @@
 For my SFIA2 project, I decided to build a name generator that would be deployed continuously when changes are detected to the code.
 
 ## Trello Board
+
+### MoSCoW Analysis
+
+#### Must have
+* 4 Services each which are containerised using Docker
+* Service 1 pulls information from Service 4
+* Service 4 pulls information from Service 2 and 3 and joins the values
+* Service 2 generates a random first name
+* Service 3 generates a random last name
+
+#### Should have
+* Nginx as a reverse proxy 
+* Ansible used to configure the instances
+* docker-compose file for creating all the containers and the container network
+* Jenkins used to trigger the build
+* Testing the URL and the database to see if data can be inserted into the database
+
+#### Could have
+* Ensuring the application is deployed using 3 instances
+* Full CRUD functionality of service 1
+* HTTPS Connection to service 1 using Nginx
+* All ports and IP addresses not exposed in the code
+* Application is only accessable through port 80 unless HTTPS connection is implemented and therefore 443
+* Ansible deploys the application in swarm mode
+#### Won't have
+
 ### Start Point
 
 ### End Point
@@ -71,7 +97,7 @@ Below is a list of risks in addition to the ones above that impacted the project
 * Ansibles documentation acts more like a reference instead of a how-to guide
 * Ansibles documentation does not mention some arguments they that it accepts
 * Setting a repository in dockerhub to private prevents it from being built using docker swarm
-* If the any of the services are edited, dockerhub bulds the images at a slower rate than jenkins does which leads to 
+* If the any of the services are edited, dockerhub bulds the images at a slower rate than jenkins does which leads to the last dockerhub container being pulled.
 ### Future Improvements
 * ~~Incoporate Dockerhub autobuild feature when changes in a Github directory are detected~~
 * Incorporate HTTPS redirection and certificate verification to ensure entries made into the database are transmited through a secure connection
@@ -81,6 +107,7 @@ Below is a list of risks in addition to the ones above that impacted the project
 
 Below I have outlined the next sprint using a Kanban Board incorporating these features. Some of these features got implemented earlier than expected due to increasing build efficiency.
 
+Image
 
 ## Installation
 ### Pre-requisites 
