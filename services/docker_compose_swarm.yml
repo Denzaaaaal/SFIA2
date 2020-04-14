@@ -1,7 +1,7 @@
 --- 
     services: 
       service_1:
-        image: denzaaaaal/service_1:feca5cf8
+        image: denzaaaaal/service_1
         networks:
           - ingress
         env_file: environment_variables.env

@@ -4,12 +4,11 @@
     </head>
     <body>
         <h1 style="text-align:center">{{ title }}</h1>
-        <h2 style="text-align:center">Instructions</h2>
         <p style="text-align:center">{{ full_name }}<p>
-        <div>
+        <form method="POST" action="" validate>
             <p style="text-align:center">
-                <button type="submit" formmethod="get|post" name="create" Value="create_new_name">Generate Name</button>
+                <input type="submit" value="Generate Name" id="submit_new">
             </p>
-        </div>
+        </form>
     </body>
 </html>

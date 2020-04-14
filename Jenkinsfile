@@ -11,6 +11,7 @@ pipeline {
         }
         stage('Testing') {
             steps{
+                sh 'sleep 15'
                 sh 'pytest ./scripts/testing/url_testing.py'
             }
         }

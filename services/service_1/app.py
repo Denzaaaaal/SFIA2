@@ -16,7 +16,8 @@ def home():
         combined_name = requests.get("http://service_4:5003/joined_names")
         full_name = combined_name.text
         cur=mysql.connection.cursor()
-        cur.execute('insert into name where full_name = %s', [full_name])
+        cur.execute('insert into name(full_name) values (%s)', [full_name])
+        mysql.connection.commit()
         cur.close()
         return render_template("layout.html", full_name = full_name, title = "Name Generator")
     return render_template("layout.html", full_name = "Hello!! Welcome to the site", title = "Name Generator")
