@@ -7,6 +7,8 @@
             dockerfile: Dockerfile
         image: service_1:latest
         env_file: ./service_1/environment_variables.env
+        ports:
+          - "5000:5000"
         networks:
           - sfia_network
 

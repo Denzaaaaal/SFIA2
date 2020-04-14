@@ -9,7 +9,7 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
 
 ## Trello Board
 
-Trello was the chosen tool used to manage the project and is a software implementation of the kanban board. This particular view helped me to adhere to the agile methodology. The work was only considered done when the feature was tested and implimented into the application.
+Trello was the chosen tool used to manage the project and is a software implementation of the kanban board. This particular view helped me to adhere to the agile methodology and manage my projects workload. The work was only considered done when the feature was tested and implimented into the application.
 ### MoSCoW Analysis
 
 #### Must have
@@ -34,6 +34,7 @@ Trello was the chosen tool used to manage the project and is a software implemen
 * Application is only accessable through port 80 unless HTTPS connection is implemented and therefore 443
 * Ansible deploys the application in swarm mode
 #### Won't have
+* Jenkins to deploy docker swarm as it requires setting up control of the nodes in jenkins which ansible can do for you if it is configured correctly and increases the complexity of the installation process.
 
 ### Start Point
 ![start_point](https://github.com/Denzaaaaal/SFIA2/blob/developer/images/start_point.JPG)
