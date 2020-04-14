@@ -9,6 +9,7 @@ For my SFIA2 project, I decided to build a name generator that would be deployed
 
 ## Trello Board
 
+Trello was the chosen tool used to manage the project and is a software implementation of the kanban board. This particular view helped me to adhere to the agile methodology. The work was only considered done when the feature was tested and implimented into the application.
 ### MoSCoW Analysis
 
 #### Must have
@@ -256,7 +257,6 @@ You will now need to add your Github account to authorise the build. Click on th
 Leave the branch as '*/master' and click 'Save'. This will take you back to the 'SFIA2 pipeline menu'.
 
 From here, select 'Build Now'. This will pull the service from the github master branch and build the application. 
-
 
 ## Author
 Denzel Douglas
