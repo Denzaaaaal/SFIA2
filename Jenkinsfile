@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage('Development Environment') {
             steps{
-                sh 'chmod +x ./scripts/*'
+                sh 'chmod +x ./scripts/*/*'
                 sh './scripts/deployment/dependencies.sh'
                 sh './scripts/deployment/run.sh'
             }
