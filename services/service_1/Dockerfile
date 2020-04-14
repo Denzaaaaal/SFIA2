@@ -5,7 +5,7 @@ RUN mkdir ./opt/service_1
 COPY . /opt/service_1
 WORKDIR /opt/service_1
 RUN apt update -y
-RUN default-libmysqlclient-dev -y
+RUN apt install default-libmysqlclient-dev -y
 
 # Installing dependencies
 RUN pip3 install flask
