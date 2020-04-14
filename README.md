@@ -67,9 +67,9 @@ Below is a list of risks in addition to the ones above that impacted the project
 
 ## Project Archetecture
 ### Initial Archetecture
-
+![inital_archetecture](https://github.com/Denzaaaaal/SFIA2/blob/developer/images/inital_archetecture.JPG)
 ### Final Archetecture
-
+![final_archetecture](https://github.com/Denzaaaaal/SFIA2/blob/developer/images/final_archetecture.JPG)
 
 ### Toolset
 - Jenkins

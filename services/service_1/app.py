@@ -10,7 +10,7 @@ app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
 app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD')
 app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 
-@app.route("/", methods = ['GET'])
+@app.route("/", methods = ['GET','POST'])
 def home():
     combined_name = requests.get("http://service_4:5003/joined_names")
     full_name = combined_name.text
