@@ -1,0 +1,7 @@
+BEGIN;
+
+CREATE TABLE names(
+    id INT(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(16) NOT NULL,
+    last_name VARCHAR(16) NOT NULL
+);
