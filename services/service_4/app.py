@@ -3,13 +3,19 @@ import requests
 
 app = Flask(__name__)
 
-@app.route("/joined_names", methods = ['GET'])
-def full_name():
+@app.route("/first_name", methods = ['GET'])
+def first_name():
     chosen_fname = requests.get("http://service_2:5001/first_name")
-    chosen_lname = requests.get("http://service_3:5002/last_name")
-    combined_name = chosen_fname.text + " " + chosen_lname.text
-    print(combined_name)
-    return combined_name
+    chosen_first_name = chosen_fname.text
+    print(chosen_first_name)
+    return chosen_first_name
 
+@app.route("/last_name", methods = ['GET'])
+def last_name():
+    chosen_lname = requests.get("http://service_3:5002/last_name")
+    chosen_last_name = chosen_lname.text
+    print(chosen_last_name)
+    return chosen_last_name
+    
 if __name__ == "__main__":
     app.run(port = 5003, host = "0.0.0.0", debug = True)
