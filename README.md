@@ -224,7 +224,7 @@ Next we need to set up an environment variables files which ansible will use to 
 
 Enter the following command 
 
-`vi ~/.environment_variables.env`
+`vi ~/.cloud_database.env`
 
 This will create a file in the jenkins home directory which will contain the details of your server. Add the code below to the file amending the variables to suit your SQL database.
 
