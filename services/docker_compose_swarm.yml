@@ -4,7 +4,7 @@
         image: denzaaaaal/service_1
         networks:
           - ingress
-        env_file: environment_variables.env
+        env_file: cloud_database.env
         deploy:
           replicas: 3
 
