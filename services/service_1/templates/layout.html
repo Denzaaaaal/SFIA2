@@ -4,10 +4,15 @@
     </head>
     <body>
         <h1 style="text-align:center">{{ title }}</h1>
-        <p style="text-align:center">{{ full_name }}<p>
+        <table style="margin-left:auto;margin-right:auto;">
+            <tr> {% for i in names %} </tr>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td> 
+                {% endfor %}
+            </table>
         <form method="POST" action="" validate>
             <p style="text-align:center">
-                <input type="submit" value="Generate Name" id="submit_new">
+                <input type="submit" name="gen_name" value="Generate Name">          
             </p>
         </form>
     </body>
