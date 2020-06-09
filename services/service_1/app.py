@@ -12,7 +12,7 @@ app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 
 @app.route("/", methods = ['GET','POST'])
 def home():
-    if request.method == 'POST' and if "gen_name" in request.form:
+    if request.method == 'POST':
         # Creating name
         generated_first_name = requests.get("http://service_4:5003/first_name")
         generated_last_name = requests.get("http://service_4:5003/last_name")

@@ -50,6 +50,19 @@
         networks:
           - sfia_network
 
+      database:
+        container_name: database
+        build:
+          context: ./database/
+          dockerfile: Dockerfile
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: changeme
+          MYSQL_DATABASE: full_name
+        networks:
+          - sfia_network
+
     networks:
       sfia_network:
         driver: bridge
