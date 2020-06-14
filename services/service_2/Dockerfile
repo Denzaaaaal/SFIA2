@@ -2,7 +2,8 @@ FROM python:slim
 
 # Setting up the environment
 RUN mkdir ./opt/service_2
-COPY . /opt/service_2
+# Uncomment line 6 when not using docker_compose_local.yml
+# COPY . /opt/service_2
 WORKDIR /opt/service_2
 RUN apt update -y
 

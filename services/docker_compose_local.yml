@@ -7,8 +7,8 @@
             dockerfile: Dockerfile
         image: service_1:latest
         env_file: ./service_1/container_database.env
-        ports:
-          - "5000:5000"
+        volumes: 
+          - ./service_1:/opt/service_1
         networks:
           - sfia_network
 
@@ -18,6 +18,8 @@
             context: ./service_2/
             dockerfile: Dockerfile
         image: service_2:latest
+        volumes: 
+          - ./service_2:/opt/service_2
         networks:
             - sfia_network
 
@@ -27,6 +29,8 @@
             context: ./service_3/
             dockerfile: Dockerfile
         image: service_3:latest
+        volumes: 
+          - ./service_3:/opt/service_3
         networks:
             - sfia_network
 
@@ -35,7 +39,9 @@
         build: 
             context: ./service_4/
             dockerfile: Dockerfile
-        image: service_4:latest   
+        image: service_4:latest
+        volumes: 
+          - ./service_4:/opt/service_4   
         networks:
           - sfia_network
 

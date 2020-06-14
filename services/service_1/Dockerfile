@@ -2,7 +2,8 @@ FROM python:slim
 
 # Setting up the environment
 RUN mkdir ./opt/service_1
-COPY . /opt/service_1
+# Uncomment line 6 when not using docker_compose_local.yml
+# COPY . /opt/service_1
 WORKDIR /opt/service_1
 RUN apt update -y
 RUN apt install gcc -y
