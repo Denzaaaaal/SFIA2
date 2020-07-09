@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 @app.route("/first_name", methods = ['GET'])
 def first_name():
-    list = ["Valeria","Perla", "Elisabeth", "Joanna", "Jordan","Violet", "Conor", "Whitney", "Ethen", "Ronan", "Selina", "Simone"]
+    """Takes a random name from list"""
+    list = ["Valeria","Perla", "Elisabeth", "Joanna", "Jordan"]
+    list += ["Violet", "Conor", "Whitney", "Ethen", "Ronan", "Selina", "Simone"]
     return list[random.randrange(12)]
 
 if __name__ == "__main__":
