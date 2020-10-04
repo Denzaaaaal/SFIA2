@@ -12,7 +12,6 @@ RUN apt install default-libmysqlclient-dev -y
 # Installing dependencies
 RUN pip3 install flask
 RUN pip3 install requests
-RUN pip3 install request
 RUN pip3 install Flask-MySQLdb
 
 # Running the application

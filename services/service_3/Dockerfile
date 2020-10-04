@@ -10,7 +10,6 @@ RUN apt update -y
 # Installing Dependencies
 RUN pip3 install flask
 RUN pip3 install requests
-RUN pip3 install request
 
 # Running the application
 CMD python3 app.py
