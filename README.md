@@ -26,6 +26,7 @@
 * [Installation](https://github.com/Denzaaaaal/SFIA2/blob/developer/README.md)
 * * [Pre-Requesits](https://github.com/Denzaaaaal/SFIA2/blob/developer/README.md)
 * * [Steps](https://github.com/Denzaaaaal/SFIA2/blob/developer/README.md#Steps)
+* * [Creating a development enviornment with docker-compose](https://github.com/Denzaaaaal/SFIA2/blob/developer/README.md#create-a-development-environment-with-docker-compose)
 * [Author](https://github.com/Denzaaaaal/SFIA2/blob/developer/README.md)
 
 ## Project brief
@@ -308,6 +309,34 @@ You will now need to add your Github account to authorise the build. Click on th
 Leave the branch as '*/master' and click 'Save'. This will take you back to the 'SFIA2 pipeline menu'.
 
 From here, select 'Build Now'. This will pull the service from the github master branch and build the application. 
+
+### Creating a development environment using docker compose
+1 - Follow the tutorial below to install docker
+
+https://docs.docker.com/engine/install/
+
+2 - Follow the tutorial below to install docker compose
+
+https://docs.docker.com/compose/install/
+
+3 – Clone down the repository by typing in 
+```
+git clone https://github.com/Denzaaaaal/SFIA2.git
+```
+4 – Navigate into the services directory by typing in 
+```
+cd ./SFIA2/services
+```
+5 – Bring up/down containers
+
+To bring up the containers, type
+```
+docker-compose -f docker_compose_local.yml up -d
+```
+To bring down the containers, type
+```
+docker-compose -f docker_compose_local.yml down -v –rmi all
+```
 
 ## Author
 Denzel Douglas
